@@ -10,11 +10,15 @@
 	$count = 0;
 	$s = array();
 	$sp = array();
+	$s2 = array();
 	$perm = array();
 	$mess = array();
 	$bin = array();
+	$dec = array();
+	$decrypt = "";
 	$encrypt = "";
 	$entry = "";
+	
 	
 	affichage();
 	echo "Bienvenue sur le Crypto Project.\n";
@@ -30,7 +34,9 @@
 		{
 			$sp = array();
 			init($e, $m, $s);
+			echo "Génération de la clé publique";
 			generate_sp($e, $m, $s, $sp, $perm);
+			echo "\nClé publique générée !\n";
 			echo "La clé publique est : ";
 			echo implode(',',$sp)."\n";
 		}
@@ -47,11 +53,16 @@
 		}
 		else if ($entry == "3")
 		{
-			//get_encrypt($encrypt);
-			//init($e, $m, $s);
-			$d = inv_modulo(255, 512);
-			
-			echo "$d";
+			get_encrypt($encrypt);
+			init($e, $m, $s);
+			generate_sp($e, $m, $s, $sp, $perm);
+			$d = inv_modulo($e, $m);
+			$count = count($sp);
+			get_n($n, $count);
+			generate_dec($dec, $encrypt, $d, $m);
+			generate_s2($s2, $s, $perm);
+			generate_decrypt($s2, $n, $decrypt);
+			echo "3\n";
 		}
 	}
 	echo "Merci d'avoir utilisé le Crypto Project !\n";
