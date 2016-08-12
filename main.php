@@ -6,6 +6,7 @@
 	$e = 0;
 	$m = 0;
 	$n = 0;
+	$d = 0;
 	$count = 0;
 	$s = array();
 	$sp = array();
@@ -46,8 +47,11 @@
 		}
 		else if ($entry == "3")
 		{
-			get_encrypt($encrypt);
-			echo "3\n";
+			//get_encrypt($encrypt);
+			//init($e, $m, $s);
+			$d = inv_modulo(255, 512);
+			
+			echo "$d";
 		}
 	}
 	echo "Merci d'avoir utilisé le Crypto Project !\n";
