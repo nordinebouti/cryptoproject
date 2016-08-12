@@ -6,6 +6,5 @@
 		{
 			$s2[$perm[$key]] = $value;
 		}
-		sort($s2);
 		return (0);
 	}
