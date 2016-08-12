@@ -1,6 +1,6 @@
 <?php
 
-	function generate_decrypt($s2, $n, &$decrypt, $dec)
+	function generate_decrypt($s, $count, &$decrypt, $dec)
 	{
 		$i = 0;
 		$j = $n;
@@ -23,7 +23,7 @@
 			{
 				if (($val - $s2[$j]) >= 0)
 				{
-					$val = $val - $s2[$j];
+					$val = $val - $s[$j];
 					$temp2[$i] == '1';
 				}
 				++$i;
