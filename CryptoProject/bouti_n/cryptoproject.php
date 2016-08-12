@@ -61,8 +61,7 @@
 			get_n($n, $count);
 			generate_dec($dec, $encrypt, $d, $m);
 			generate_s2($s2, $s, $perm);
-			var_dump($s2);
-			generate_decrypt($s2, $n, $decrypt);
+			generate_decrypt($s2, $n, $decrypt, $dec);
 		}
 	}
 	echo "Merci d'avoir utilisé le Crypto Project !\n";

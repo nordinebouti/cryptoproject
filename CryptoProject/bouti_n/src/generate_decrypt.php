@@ -1,6 +1,6 @@
 <?php
 
-	function generate_decrypt($s2, $n, &$decrypt, $encrypt)
+	function generate_decrypt($s2, $n, &$decrypt, $dec)
 	{
 		$i = 0;
 		$j = $n;
@@ -14,7 +14,7 @@
 			$temp .= "0";
 			$i++;
 		}
-		foreach ($encrypt as $key => $val)
+		foreach ($dec as $key => $val)
 		{
 			$i = 0;
 			$temp2 = $temp;
@@ -31,7 +31,7 @@
 				}
 			array_push($temp2, $tab);
 		}
-		
+		var_dump($tab);
 		$bin = implode('', $tab);
 		return(0);
 	}
