@@ -1,18 +1,21 @@
 <?php
 
-	function generate_enc($mess, &$encrypt, $n)
+	function generate_enc($bin, &$encrypt, $sp, $n)
 	{
-		$temp = array();
-		$cut = "";
-		foreach ($mess as $word)
+		$i = 0;
+		$total = 0;
+		$result = array();
+		
+		foreach($bin as $key => $val)
 		{
-			$i = 0;
-			while (isset($word[$i]))
-			{	
-				array_push($temp, decbin(ord($word[$i])));
-				++$i;
+			for($i = 0; $i < $n; $i++)
+			{
+				if ($val[$i] == '1')
+					$total += $sp[$n - $i - 1];
 			}
+			array_push($result, $total);
+			$total = 0;
 		}
-		$cut = implode($temp);
-		str_split($cut, $n);
+		$encrypt = implode(' ', $result);
+		return(0);
 	}
