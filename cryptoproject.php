@@ -1,6 +1,6 @@
 <?php
 
-	foreach (glob("functions/*.php") as $filefunc)
+	foreach (glob("src/*.php") as $filefunc)
 		include_once $filefunc;
 		
 	$e = 0;
