@@ -1,40 +1,43 @@
 <?php
 
-	function generate_decrypt($s, $count, &$decrypt, $dec)
+	function generate_decrypt($s2, $count, &$decrypt, $dec, $n)
 	{
 		$i = 0;
 		$j = $n;
 		$tab = array();
 		$result = array();
+		$temp2 = "";
 		$temp = "";
 		$bin = "";
+		$save = 0;
 		
 		while ($i < $n)
 		{
 			$temp .= "0";
 			$i++;
 		}
-		foreach ($dec as $val)
+		foreach ($dec as $key => $val)
 		{
 			$i = 0;
 			$temp2 = $temp;
-			$j = $n - 1;
+			$j = $count - 1;
 			while ($val > 0)
 			{
-				if (($val - $s2[$j]) >= 0)
+				foreach ($s2 as $key2 => $val2)
 				{
-					$val = $val - $s[$j];
-					$temp2[$i] == '1';
+					if (($val - $val2) >= 0 && $save < $val2)
+					{
+						$save_val = $val2;
+						$save_key = $key2;
+					}
 				}
-				++$i;
-				echo $val."\n";
-				if($j == 0)
-					exit();
-				--$j;
+				$val = $val - $save_val;
+				$temp2[$save_key] == '1';
 			}
-			array_push($temp2, $tab);
+			array_push($tab, $temp2);
 		}
 		var_dump($tab);
+		exit();
 		$bin = implode('', $tab);
 		return(0);
 	}
